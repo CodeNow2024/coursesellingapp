@@ -1,20 +1,14 @@
 const express = require('express');
+const userRouter = require('./user.js');
+const courseRouter = require('./course.js');
+
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
-app.post('/signup', (req, res) => {
-});
-app.post('/login', (req, res) => {
-});
-app.get('/purchasecourse', (req, res) => {
-  res.send('Hello, World!');
-});
-app.get('/seecourse', (req, res) => {
-  res.send('Hello, World!');
-});
-
+app.use('/user',userRouter);
+app.use('/course',courseRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
